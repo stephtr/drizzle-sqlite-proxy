@@ -13,6 +13,7 @@
 		"proxy"
 	],
 	"author": "Stephan Troyer",
+	"repository": "github:stephtr/drizzle-sqlite-proxy",
 	"license": "MIT",
 	"bin": {
 		"drizzle-sqlite-proxy-server": "dist/db-server.js"
