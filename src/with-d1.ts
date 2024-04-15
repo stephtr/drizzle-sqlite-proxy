@@ -1,5 +1,5 @@
 import { DrizzleConfig } from 'drizzle-orm';
-import { drizzle as drizzleSQLiteProxy } from './';
+import { drizzle as drizzleSQLiteProxy } from './index.js';
 import { DrizzleD1Database, drizzle as drizzleD1 } from 'drizzle-orm/d1';
 
 let localDrizzle: <
