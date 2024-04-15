@@ -5,12 +5,12 @@ import { drizzle as drizzleProxy } from 'drizzle-orm/sqlite-proxy';
 export const drizzle = <
 	TSchema extends Record<string, unknown> = Record<string, never>,
 >({
-	url = 'http://localhost:3010',
+	sqliteProxyUrl = 'http://localhost:3010',
 	...config
-}: (DrizzleConfig<TSchema> & { url?: string }) | undefined = {}) =>
+}: (DrizzleConfig<TSchema> & { sqliteProxyUrl?: string }) | undefined = {}) =>
 	drizzleProxy<TSchema>(
 		async (sql, params, method) => {
-			const response = await fetch(`${url}/query`, {
+			const response = await fetch(`${sqliteProxyUrl}/query`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const drizzle = <
 			}
 		},
 		async (queries) => {
-			const response = await fetch(`${url}/batch`, {
+			const response = await fetch(`${sqliteProxyUrl}/batch`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

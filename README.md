@@ -21,12 +21,23 @@ import * as schema from "./schema";
 export const db = drizzle({ schema });
 ```
 
+In case you want to use Cloudflare's D1 database in production but `SQLite` during development, you can also use:
+
+```js
+import { drizzle } from "drizzle-sqlite-proxy/with-d1";
+import * as schema from "./schema";
+
+export const db = drizzle(process.env.DB, { schema });
+```
+
+This resolves to `drizzle-orm/d1` during production and `drizzle-orm/sqlite-proxy` during development.
+
 ## Usage
 
 The drizzle function exported from this package supports specifying a server url via:
 
 ```js
-export const db = drizzle({ url: "http://localhost:3010" });
+export const db = drizzle({ sqliteProxyUrl: "http://localhost:3010" });
 ```
 
 The server supports the following arguments:
