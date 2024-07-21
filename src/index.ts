@@ -28,7 +28,7 @@ export const drizzle = <
 			}
 			try {
 				const text = await response.text();
-				if (!text) return { rows: [] };
+				if (!text) return { rows: undefined as any }; // for a get request, rows doesn't contain an array with one row, but instead the row itself; so we return undefined if there are was no row found
 				const data = JSON.parse(text);
 				return { rows: data as any[] };
 			} catch (error) {

@@ -1,6 +1,6 @@
 {
 	"name": "drizzle-sqlite-proxy",
-	"version": "0.2.5",
+	"version": "0.2.6",
 	"description": "Provides a proxy server for drizzle-orm to access a sqlite database",
 	"main": "dist/index.js",
 	"type": "module",
